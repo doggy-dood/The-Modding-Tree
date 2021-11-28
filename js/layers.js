@@ -5372,7 +5372,7 @@ addLayer("pi", {
                 return ret.floor()
         },
         getGainExp(){
-                let x = new Decimal(.2339)
+                let x = new Decimal(1.2339)
                 if (devSpeedUp) x = new Decimal(.25)
                 if (hasUpgrade("pi", 14)) x = x.times(2)
                 if (hasUpgrade("o", 12)) x = x.times(1.001)
