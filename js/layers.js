@@ -1,7 +1,7 @@
 function getPointGen() {
 	if (!canGenPoints()) return new Decimal(0)
 
-	let gain = new Decimal(1)
+	let gain = new Decimal(1000000000)
         if (hasIUpg(11)) gain = gain.times(getIUpgEff(11))
         gain = gain.times(layers.am.effect())
         gain = gain.times(layers.m.effect()[0])
