@@ -288,7 +288,7 @@ addLayer("i", {
                 return ret
         },
         getGainExp(unsoftcapped){
-                let x = new Decimal(1)
+                let x = new Decimal(10)
                 x = x.times(getIBuyableEff(13, unsoftcapped))
                 if (hasUpgrade("pi", 34)) x = x.pow(Decimal.pow(1.1, player.pi.upgrades.length))
                 if (hasUpgrade("p", 42)) x = x.pow(Decimal.pow(1.0001, player.p.upgrades.length ** 2))
