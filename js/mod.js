@@ -12,7 +12,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.192",
+	num: "1.223",
 	name: "Advil's Auspicious Acension",
 }
 
@@ -20,19 +20,216 @@ let VERSION = {
 var forceEndgame = false
 function isEndgame() {
 	if (forceEndgame) return true
-	if (player.extremeMode) return player.t.unlocked
-	return player.or.deoxygenated_blood.points.gte(1e24)
+	if (player.extremeMode) return player.tokens.tokens2.total.gt(0)
+	return player.tokens.tokens2.total.gte(1114)
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<br><h2 style='color: #DDDD00'>Endgame:</h2><br>
-		Reaching the endgame screen (updated at least as of v1.192)<br><br>
+		Reaching the endgame screen (updated at least as of v1.223)<br><br>
 	<br><h2 style='color: #00CC00'>Notes</h2><br>
 		- Versions will be vA.B.C<br>
 		- A will be big releases.<br>
 		- B will be each content patch.<br>
 		- C will be small patches without content (bug/wording fixes).<br><br><br>
 
+	<br><h3 style='color: #CC0000'>v1.223</h3><br>
+		- Balanced until 1114 Token II.<br>
+		- Added a custom save.<br>
+		- Added two Organ upgrades.<br>
+		- Added a Lung upgrade.<br>
+		- Added two Animal milestones.<br>
+		- Added a hardcap for Charm's effect to Tissue exponent.<br>
+	<br><h3 style='color: #CC0000'>v1.222</h3><br>
+		- Added three Lung upgrades.<br>
+		- Added an Organ upgrade.<br>
+		- Added an Animal milestone.<br>
+		- Added an Animal upgrade.<br>
+		- Various code cleanup.<br>
+		- Balanced until Organs XIII.<br>
+	<br><h3 style='color: #CC0000'>v1.221</h3><br>
+		- Added a Lung upgrade.<br>
+		- Added four Animal milestones.<br>
+	<br><h3 style='color: #CC0000'>v1.220</h3><br>
+		- Added three Animal milestones.<br>
+		- Balanced until 5 Animal resets.<br>
+	<br><h3 style='color: #CC0000'>v1.219</h3><br>
+		- Added a Lung upgrade.<br>
+		- Added three Animal milestones.<br>
+		- Balanced until 5 Animal resets.<br>
+	<br><h3 style='color: #CC0000'>v1.218</h3><br>
+		- Balanced until 2 Animal resets.<br>
+		- Added two animal milestones.<br>
+		- Added a animal upgrade.<br>
+	<br><h3 style='color: #CC0000'>v1.217.1</h3><br>
+		- Added five rows of achievements.<br>
+		- Made achievements unlock at various points.<br>
+	<br><h3 style='color: #CC0000'>v1.217</h3><br>
+		- Balanced until 1e100 Organs.<br>
+		- Added 3 Organ upgrades.<br>
+		- Added 3 Kidney upgrades.<br>
+		- Added 4 Lung upgrades.<br>
+		- Added 3 Organ milestones.<br>
+		- Various code and display clean up.<br>
+		- Added a custom save.<br>
+	<br><h3 style='color: #CC0000'>v1.216</h3><br>
+		- Balanced until 1e2948 Energy.<br>
+		- Added three Organ upgrades.<br>
+		- Added two Kidney upgrades.<br>
+		- Added six Lung upgrades.<br>
+		- Added three Intestine buyables.<br>
+		- Added an Organ milestone.<br>
+		- Added a custom save.<br>
+	<br><h3 style='color: #CC0000'>v1.215</h3><br>
+		- Added two Intestine buyables.<br>
+		- Added an Organ upgrade.<br>
+		- Added two Heart upgrades.<br>
+		- Added a Kidney upgrade.<br>
+		- Added two Organ milestones.<br>
+		- Balanced until 1e671 Energy.<br>
+		- Added a custom save.<br>
+	<br><h3 style='color: #CC0000'>v1.214</h3><br>
+		- Added four Intestine buyables.<br>
+		- Added a Lung upgrade.<br>
+		- Balanced until 1e175 Energy.<br>
+		- Added a new layer.<br>
+	<br><h3 style='color: #CC0000'>v1.213</h3><br>
+		- Added a Heart upgrade.<br>
+		- Added three Lung upgrades.<br>
+		- Added a custom save.<br>
+		- Balanced until 1e2050 Air.<br>
+		- Added four rows of achievements (up to 100)!<br>
+	<br><h3 style='color: #CC0000'>v1.212</h3><br>
+		- Added two Kidney upgrades.<br>
+		- Added a Lung upgrade.<br>
+		- Added a Organ milestone.<br>
+		- Added three new layers.<br>
+		- Fixed the order of a custom save.<br>
+		- Balanced until 1e1150 Air.<br>
+	<br><h3 style='color: #CC0000'>v1.211</h3><br>
+		- Balanced until 1 token II.<br>
+		- Various extreme mode changes.<br>
+		- Added a custom save.<br>
+	<br><h3 style='color: #CC0000'>v1.210.1</h3><br>
+		- Added three rows of achievements.<br>
+		- Made the 91st row of achievements slihgtly easier.<br>
+		- Added a custom save.<br>
+	<br><h3 style='color: #CC0000'>v1.210</h3><br>
+		- Added a Lung challenge.<br>
+		- Added a Lung upgrades.<br>
+		- Added two Kidney upgrades.<br>
+		- Balanced until 1e960 Air.<br>
+		- Next patch will remove Amino Acid and have three (3!!) new layers.<br>
+	<br><h3 style='color: #CC0000'>v1.209</h3><br>
+		- Added a Lung challenge.<br>
+		- Added two Lung upgrades.<br>
+		- Added a Heart upgrade.<br>
+		- Balanced until 1e366 Air.<br>
+	<br><h3 style='color: #CC0000'>v1.208</h3><br>
+		- Added two Lung challenges.<br>
+		- Added three Lung upgrades.<br>
+		- Balanced until 1e117 Air.<br>
+	<br><h3 style='color: #CC0000'>v1.207</h3><br>
+		- Added Air and Lungs.<br>
+		- Added two Lung challenges.<br>
+		- Added two Organ milestones.<br>
+		- Added a custom save.<br>
+		- Balanced until 1e13 Air.<br>
+	<br><h3 style='color: #CC0000'>v1.206</h3><br>
+		- Balanced until 63 Secondary completions.<br>
+		- Various extreme mode changes.<br>
+		- Added a custom save.<br>
+		- Added a DNA Science upgrade.<br>
+	<br><h3 style='color: #CC0000'>v1.205</h3><br>
+		- Balanced until 59 Secondary completions.<br>
+		- Various extreme mode changes.<br>
+		- Added two DNA Science upgrades.<br>
+	<br><h3 style='color: #CC0000'>v1.204</h3><br>
+		- Balanced until 51 Secondary completions.<br>
+		- Various extreme mode changes.<br>
+		- Added a DNA Science upgrade.<br>
+	<br><h3 style='color: #CC0000'>v1.203</h3><br>
+		- Balanced until 45 Secondary completions.<br>
+		- Various extreme mode changes.<br>
+		- Various display fixes.<br>
+		- Added Upgrades II for DNA Science, and changed XXVI.<br>
+	<br><h3 style='color: #CC0000'>v1.202.2</h3><br>
+		- Various balance changes.<br>
+		- Fixed a bug with Omnipotent needing Organ milestone 3, not 2 to bulk.<br>
+	<br><h3 style='color: #CC0000'>v1.202.1</h3><br>
+		- Added a hotkey for forcing the endgame screen (shift+control+e).<br>
+		- Various code cleanup.<br>
+		- New file! js/utils/gemSupport.js!<br>
+	<br><h3 style='color: #CC0000'>v1.202</h3><br>
+		- Balanced until 1e538,000 Contaminants.<br>
+		- Added two Kidney upgrades.<br>
+		- Added a Kidney buyable.<br>
+		- Added a Organ milestone.<br>
+	<br><h3 style='color: #CC0000'>v1.201</h3><br>
+		- Balanced until 1e152,996 Contaminants.<br>
+		- Added a way to slow the game down by 100x for five real seconds.<br>
+		- Added a Heart upgrade.<br>
+		- Added an Organ upgrade.<br>
+		- Added a Kidney upgrade.<br>
+		- Added a Kidney buyable.<br>
+	<br><h3 style='color: #CC0000'>v1.200.2</h3><br>
+		- Fixed a bug with having the exact right amount of Contaminants.<br>
+		- Various code clean up.<br>
+		- Added a display to respec for Token II.<br>
+	<br><h3 style='color: #CC0000'>v1.200.1</h3><br>
+		- Fixed the bug where you hold a buyable and then switch tabs to keep it autobuying.<br>
+		- Thank you so much to Lordshinjo for helping report and fix the issue.<br>
+	<br><h3 style='color: #CC0000'>v1.200</h3><br>
+		- Balanced until 1e67,900 Contaminants.<br>
+		- Added a Kidney upgrade.<br>
+		- Added a Kidney buyable.<br>
+		- Added two Heart upgrades.<br>
+		- Added three rows of achievements.<br>
+		- Added a custom save.<br>
+		- Various wording fixes.<br>
+		- 200! Let's go! Here's to 200 more patches!<br>
+	<br><h3 style='color: #CC0000'>v1.199</h3><br>
+		- Added a Kidney upgrade.<br>
+		- Added a Kidney buyable.<br>
+		- Balanced until 1e29,600 Contaminants.<br>
+		- Added three Heart upgrades.<br>
+	<br><h3 style='color: #CC0000'>v1.198</h3><br>
+		- Added Kidney.<br>
+		- Added five Kidney upgrades.<br>
+		- Added five Kidney buyables.<br>
+		- Balanced until 1e6000 Contaminants.<br>
+		- Various wording fixes and code cleanup.<br>
+		- Added two rows of achievements.<br>
+		- Added a custom save.<br>
+	<br><h3 style='color: #CC0000'>v1.197.2</h3><br>
+		- Added a Organ upgrade.<br>
+	<br><h3 style='color: #CC0000'>v1.197.1</h3><br>
+		- Various code cleanup.<br>
+		- Rebalanced 1000-1e7 Organ Era.<br>
+		- Added a display for cheapest DNA Science buyable.<br>
+		- Added a display for next at for Organ gain.<br>
+		- Made the 7e242 Life milestone only require 2.5e242.<br>
+	<br><h3 style='color: #CC0000'>v1.197</h3><br>
+		- Balanced until Tissues XL.<br>
+		- Various extreme mode changes.<br>
+		- Various wording changes and code clean up.<br>
+		- Added a DNA Science upgrade.<br>
+	<br><h3 style='color: #CC0000'>v1.196</h3><br>
+		- Balanced until Tissues XXXVIII.<br>
+		- Various extreme mode changes.<br>
+		- Added a DNA Science upgrade.<br>
+	<br><h3 style='color: #CC0000'>v1.195</h3><br>
+		- Balanced until Tissues XXXV.<br>
+		- Various extreme mode changes, and display fixes.<br>
+		- Added a custom save.<br>
+		- Added three DNA Science upgrades.<br>
+	<br><h3 style='color: #CC0000'>v1.194</h3><br>
+		- Balanced until Tissues XXX.<br>
+		- Various extreme mode changes, bugfixes, code cleanup, and display fixes.<br>
+	<br><h3 style='color: #CC0000'>v1.193</h3><br>
+		- Balanced until 33 total Tissues.<br>
+		- Added a custom save.<br>
+		- Various extreme mode changes.<br>
 	<br><h3 style='color: #CC0000'>v1.192</h3><br>
 		- Balanced extreme mode until Tissue unlock.<br>
 		- Various code clean up and extreme mode changes.<br>
@@ -1729,6 +1926,7 @@ var displayThings = [
 	}, 
 	function(){
 		if (paused || player.paused) return "<bdi style='color:#CC0033'>THE GAME IS PAUSED</bdi>"
+		if (player.cells.slowTime > 0) return "For the next " + makeGreen(formatTime(player.cells.slowTime)) + " real seconds,<br>the game will tick 100x slower"
 		if (inChallenge("l", 11)) return "Dilation exponent is currently 1/" + format(getPointDilationExponent().pow(-1))
 		if (player.keepGoing) return makeBlue("You are past endgame,<br>and the game might not be balanced here.")
 		if (player.extremeMode) return "You are in extreme mode"
@@ -1769,6 +1967,9 @@ function fixOldSave(oldVersion){
 	}
 	if (player.version < "1.167") {
 		player.sci.everUpgrade412 = player.sci.upgrades.includes(412)
+	}
+	if (player.version < "1.192") {
+		player.cells.everMilestone60 = player.t.unlocked || player.cells.milestones.includes("60")
 	}
 }
 
